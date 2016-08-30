@@ -1,6 +1,6 @@
 /**
-*	@author 
-*	@date 
+*	@modified by pDreger 
+*	@date 08/30/16
 *	@file LinkedList.hpp
 *	@brief Implementation file for templated LinkedList class
 */
