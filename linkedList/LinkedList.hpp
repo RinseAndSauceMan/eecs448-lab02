@@ -29,10 +29,31 @@ bool LinkedList<T>::isEmpty() const
 template <typename T>
 int LinkedList<T>::size() const
 {
-	/** TODO 
-		Fix this method
-	*/
-	return(0);
+	// Reset size at zero	
+	m_size = 0;
+	
+	bool isEmptyList = false;
+	
+	// Points to the head of the linked list.
+	Node<T>* curPtr = m_front;
+	
+	// Check if empty list
+	isEmptyList = isEmpty();
+	if (isEmptyList != true)
+	{
+		// Marches the curPtr through the list till it hits the end (nullptr)
+		while ((curPtr != nullptr) 
+		{
+			// Advances the ptr down the list
+			curPtr = curPtr->getNext();
+			// Upgrades the size
+			m_size++;
+		}
+	}
+	else // an empty list, and do not have to do anything with it
+	{}
+	
+	return(m_size);
 }
 
 template <typename T>
