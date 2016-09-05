@@ -42,11 +42,11 @@ int LinkedList<T>::size() const
 	if (isEmptyList != true)
 	{
 		// Marches the curPtr through the list till it hits the end (nullptr)
-		while ((curPtr != nullptr) 
+		while (curPtr != nullptr) 
 		{
 			// Advances the ptr down the list
 			curPtr = curPtr->getNext();
-			// Upgrades the size
+			// Updates the size
 			m_size++;
 		}
 	}
@@ -61,10 +61,22 @@ bool LinkedList<T>::search(T value) const
 {
 	Node<T>* temp = m_front;
 	bool isFound = false;
+	// Upper bound of what needs to be searched
+	int linkedListSize = size().
 
-	/** TODO 
-		Fix this method
-	*/
+	// MARCHES through the linked list
+	for (int curPos = 0; curPos < linkedListSize; curPos++)
+	{
+		// COMPARING gotten values to sought value 
+		if (curPos->getValue() == value)
+		{			
+			isFound = true;
+			// When value matches, break the loop early
+			break;
+		}
+		else
+		{}
+	}	
 
 	return(isFound);
 }
