@@ -136,21 +136,39 @@ bool LinkedList<T>::removeBack()
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
 
+	// Can only remove from an non-empty list 
 	if(!isEmpty())
 	{
+		// Get the size of the list
 		int twoFromLast = size();
 
+		// Attaches the trailing pointer to the front of the list
 		secondintoLast = m_front;
+		// For loop a bit more efficient than while if size is easily gotten
 		for(int i = 0; i < twoFromLast; i++)
 		{
+			// MARCHES through the list
 			secondintoLast = secondintoLast->getNext();
 		}
+		// Attaches the last node pointer to the last link in the chain
 		lastNode = secondintoLast->getNext();
-
+		
+		// DESTROY the data being pointed to in the last node		
 		delete lastNode;
 		lastNode = nullptr;
+		
+		// ENDS the list
+		secondintoLast->setNext(nullptr);
+		// SHRINK the size
+		m_size--;
+		// ANNOUNCES back has been removed
+		isRemoved = true;
 	}
-
+	else
+	{
+		// Could state can't remove the back of an empty list,
+		// or throw an error
+	}
 	
 	return(isRemoved);
 }	
