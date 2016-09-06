@@ -30,7 +30,7 @@ template <typename T>
 int LinkedList<T>::size() const
 {
 	// Reset size at zero	
-	m_size = 0;
+	int sizeOf = 0;
 	
 	bool isEmptyList = false;
 	
@@ -47,13 +47,13 @@ int LinkedList<T>::size() const
 			// Advances the ptr down the list
 			curPtr = curPtr->getNext();
 			// Updates the size
-			m_size++;
+			sizeOf++;
 		}
 	}
 	else // an empty list, and do not have to do anything with it
 	{}
 	
-	return(m_size);
+	return(sizeOf);
 }
 
 template <typename T>
@@ -62,7 +62,7 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	bool isFound = false;
 	// Upper bound of what needs to be searched
-	int linkedListSize = size().
+	int linkedListSize = size();
 
 	// MARCHES through the linked list
 	for (int curPos = 0; curPos < linkedListSize; curPos++)
@@ -136,10 +136,22 @@ bool LinkedList<T>::removeBack()
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
 
-	/** TODO 
-		Fix this method
-	*/
+	if(!isEmpty())
+	{
+		int twoFromLast = size();
 
+		secondintoLast = m_front;
+		for(int i = 0; i < twoFromLast; i++)
+		{
+			secondintoLast = secondintoLast->getNext();
+		}
+		lastNode = secondintoLast->getNext();
+
+		delete lastNode;
+		lastNode = nullptr;
+	}
+
+	
 	return(isRemoved);
 }	
 
