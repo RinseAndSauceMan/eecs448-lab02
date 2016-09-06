@@ -62,13 +62,13 @@ bool LinkedList<T>::search(T value) const
 	Node<T>* temp = m_front;
 	bool isFound = false;
 	// Upper bound of what needs to be searched
-	int linkedListSize = size();
+	int linkedListSize = m_size;
 
 	// MARCHES through the linked list
 	for (int curPos = 0; curPos < linkedListSize; curPos++)
 	{
 		// COMPARING gotten values to sought value 
-		if (curPos->getValue() == value)
+		if (temp->getValue() == value)
 		{			
 			isFound = true;
 			// When value matches, break the loop early
